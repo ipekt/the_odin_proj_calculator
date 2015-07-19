@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Odin Project JS Calculator</title>
+  <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+  <script src="javascript.js"></script>
+</head>
+<body>
+<style>
+.container-fluid {
+  width: 450px;
+  margin: 50px auto;
+  border: 1px solid black;
+}
+.col-md-3, .col-md-9, .col-md-12 {
+  text-align: center;
+  font-size: 2em;
+  border: 1px solid black;
+  height: 85px;
+  padding: 20px;  
+}
+</style>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-12 button operant" id="result">0</div>
+  </div>
+  <div class="row">
+    <div class="col-md-9 reset" id="clear">AC</div>
+    <div class="col-md-3 operant" id="divide">/</div>
+  </div>
+  <div class="row">
+    <div class="col-md-3 button num" id="9">9</div>
+    <div class="col-md-3 button num" id="8">8</div>
+    <div class="col-md-3 button num" id="7">7</div>
+    <div class="col-md-3 operant" id="multiply">x</div>
+  </div>
+  <div class="row">
+    <div class="col-md-3 button num" id="6">6</div>
+    <div class="col-md-3 button num" id="5">5</div>
+    <div class="col-md-3 button num" id="4">4</div>
+    <div class="col-md-3 operant" id="minus">-</div>
+  </div>
+  <div class="row">
+    <div class="col-md-3 button num" id="3">3</div>
+    <div class="col-md-3 button num" id="2">2</div>
+    <div class="col-md-3 button num" id="1">1</div>
+    <div class="col-md-3 operant" id="plus">+</div>
+  </div>
+  <div class="row">
+    <div class="col-md-9 button num" id="0">0</div>
+    <div class="col-md-3 button calculate" id="calculate">=</div>
+    
+  </div>
+</div>
+
+</body>
+</html>
