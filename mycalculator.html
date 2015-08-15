@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>my calculator</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+  <script src="script.js"></script>
+</head>
+<body>
+<style>
+.container {
+  margin: 0 auto;
+  padding: 2em;
+}
+.calculator {
+  margin: 0 auto;
+  width: 25em;
+}
+.row {
+  width: 100%;
+  height: 4.5em;
+}
+button {
+  border: none;
+  font-size: 1.3em;
+  padding: 1em 0;
+  width: 24%;
+  outline: none;
+}
+button:active {
+  background-color: #ADA3A3;
+}
+.screen, button {
+  background-color: #F0F0F0;
+}
+.screen {
+  font-size: 2em;
+  padding: 0.65em;
+  text-align: right;
+ 
+}
+
+.screen-container {
+  border: none;
+  margin-bottom: .9em;
+  width: 99%; 
+}
+
+.col2 {
+  width: 49%;
+}
+</style>
+
+<div class="container">
+  <div class="calculator">
+    <div class="row screen-container">
+      <div class="screen">0</div>
+    </div>
+    <div class="row">
+       <button class="reset col2">C</button>
+       <button class="operator col2">/</button>
+    </div>
+    <div class="row">
+      <button class="number">7</button>
+      <button class="number">8</button>
+      <button class="number">9</button>
+      <button class="operator" data-content="x">x</button>
+    </div>
+     <div class="row">
+      <button class="number">4</button>
+      <button class="number">5</button>
+      <button class="number">6</button>
+      <button class="operator">-</button>
+    </div>
+    <div class="row">
+      <button class="number">1</button>
+      <button class="number">2</button>
+      <button class="number">3</button>
+      <button class="operator">+</button>
+    </div>
+    <div class="row">
+      <button class="number col2">0</button>
+      <button class="number">.</button>
+      <button class="calculate">=</button>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>
