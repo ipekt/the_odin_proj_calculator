@@ -1,17 +1,15 @@
-//JS On Screen Calculator
-//  Project: http://www.theodinproject.com/javascript-and-jquery/on-screen-calculator
+/*jslint browser:true */
+/* globals document */
 
-/*globals document*/
-
-function ready(calculateMe) {
+function ready(calculator) {
   if (document.readyState != 'loading') {
-    calculate();
+    calculator();
   } else {
-    document.addEventListener('DOMContentLoaded', calculateMe);
+    document.addEventListener('DOMContentLoaded', calculator);
   }
 }
 
-var calculateMe = function () {
+var calculator = function () {
 
   var number1 = '',
     number2 = '',
@@ -71,7 +69,7 @@ var calculateMe = function () {
   };
 
   //  Set numbers
-  var setNumber = function(n, selectedNum) {
+  var setNumber = function (n, selectedNum) {
     // A number cant have multiple periods in it,
     // therefore dont change the number with coming data, display simple
     if (n.indexOf('.') > -1 && selectedNum === '.') {
@@ -85,12 +83,9 @@ var calculateMe = function () {
     }
   };
 
-  // Click event registered to numbers
-  var numbers = document.querySelectorAll('.number');
-
-  for (var i = 0; i < numbers.length; i++) {
-    numbers[i].addEventListener('click', function () {
-      var selectedNum = this.innerHTML;
+  // Set number event
+  var setNumberEvent = function() {
+    var selectedNum = this.innerHTML;
 
       if (!numSet) {
         number1 += setNumber(number1, selectedNum);
@@ -99,16 +94,17 @@ var calculateMe = function () {
         number2 += setNumber(number2, selectedNum);
         displayResults(number2);
       }
-    });
+  };
+
+  // Click event registered to numbers
+  var numbers = document.querySelectorAll('.number');
+
+  for (var i = 0; i < numbers.length; i++) {
+    numbers[i].addEventListener('click', setNumberEvent);
   }
 
-  // Click event registered to operators
-  var operators = document.querySelectorAll('.operator');
-
-  for (var j = 0; j < operators.length; j++) {
-    operators[j].addEventListener('click', function () {
-
-      var selectedOperator = this.innerHTML;
+  var setOperator = function () {
+    var selectedOperator = this.innerHTML;
 
       if (!operatorFirstSet && number1 === '') {
 
@@ -132,11 +128,17 @@ var calculateMe = function () {
         operator = selectedOperator;
         //Display result when next operator is set.
         displayResults(result);
-        // Assign number 1 to be result
+        // Assign number 1 the result value
         number1 = result;
         number2 = '';
       }
-    });
+  };
+
+  // Click event registered to operators
+  var operators = document.querySelectorAll('.operator');
+
+  for (var j = 0; j < operators.length; j++) {
+    operators[j].addEventListener('click', setOperator);
   }
 
   // Click event registered to equal operator
@@ -148,8 +150,8 @@ var calculateMe = function () {
   // Click event registered to reset operator
   document.querySelector('.reset').addEventListener('click', reset);
 
-}
+};
 
-ready(calculateMe);
+ready(calculator);
 
-module.exports = { calculateMe: calculateMe };
+
